@@ -69,8 +69,10 @@ class SearchRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun onBind(item: UserItem, position: Int){
 
             if(item.isBookmarked){
+                binding.buttonBookmark.text = "BOOKMARK OFF"
                 binding.constraintProfileContainer.setBackgroundColor(ContextCompat.getColor(context, R.color.purple_200))
             }else{
+                binding.buttonBookmark.text = "BOOKMARK"
                 binding.constraintProfileContainer.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
             }
 

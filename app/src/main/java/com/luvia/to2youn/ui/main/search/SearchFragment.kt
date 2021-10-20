@@ -45,6 +45,7 @@ class SearchFragment : BaseMvvmFragment<FragmentSearchBinding>() {
         binding.imageViewSearchRequest.setOnClickListener {
             val keyword = binding.editTextKeyword.text
             viewModel.requestSearchUsers(keyword.toString())
+
             ViewUtil.hideKeyboard(requireActivity())
             binding.editTextKeyword.clearFocus()
             viewModel.getSearchEmptyPlaceHolder().value = false
