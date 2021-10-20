@@ -16,6 +16,8 @@ import com.luvia.to2youn.network.model.search.UserItem
 import com.luvia.to2youn.ui.main.SharedViewModel
 import com.luvia.to2youn.utils.ImageUtil
 
+//검색결과 리스트 어뎁터
+//북마크 어뎁터와 큰 차이는 없지만 확장성 고려를 위해 따로 구성하였다.
 class SearchRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     interface SearchInterface{

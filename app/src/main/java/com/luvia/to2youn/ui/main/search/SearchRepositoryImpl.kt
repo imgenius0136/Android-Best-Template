@@ -7,6 +7,9 @@ import com.luvia.to2youn.network.model.search.UserModel
 import retrofit2.Call
 import kotlin.coroutines.suspendCoroutine
 
+//검색 interface 구현체
+//뷰모델 스코프에서 throw error 를 캐치가 안되는 이슈때문에 모두 success 를 보내주었다.
+//개선 시 live 데이터 자체를 리턴하는 방식으로 레포지토리를 구성하고자 한다.
 class SearchRepositoryImpl : SearchRepository{
     override suspend fun requestSearchUsers(context: Context, keyword: String): UserModel {
 

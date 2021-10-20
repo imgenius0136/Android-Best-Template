@@ -13,6 +13,7 @@ import com.luvia.to2youn.ui.main.SharedViewModel
 import com.luvia.to2youn.ui.main.search.SearchRecyclerAdapter
 import com.luvia.to2youn.utils.BlueUtil
 
+//북마크 관리 프레그먼트
 class BookmarkFragment : BaseMvvmFragment<FragmentBookmarkBinding>() {
 
     private val viewModel: SharedViewModel by activityViewModels()

@@ -7,6 +7,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 
+//테스트를 위한 Api 인터페이스
 interface ApiInterface {
     @GET("/home")
     fun requestHome(): Call<HomeDto.HomeResponse>

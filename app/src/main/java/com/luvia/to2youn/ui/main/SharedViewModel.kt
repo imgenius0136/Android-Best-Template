@@ -10,16 +10,20 @@ import com.luvia.to2youn.ui.main.search.SearchRepositoryImpl
 import com.luvia.to2youn.utils.BlueUtil
 import kotlinx.coroutines.launch
 
+//북마크 프래그먼트와 검색결과 프래그먼트가 공통적으로 사용하는 뷰모델
 class SharedViewModel(application: Application) : BaseViewModel(application) {
 
     private val searchRepository = SearchRepositoryImpl()
 
+    //검색결과 관리 라이브 데이터, 갱신을 위한 플래그
     private val searchResultData = MutableLiveData<ArrayList<UserItem>>()
     private val searchResultDataRefresh = MutableLiveData<Boolean>()
 
+    //북마크 관리 라이브 데이터, 갱신을 위한 플래그
     private val bookmarkData = MutableLiveData<ArrayList<UserItem>>()
     private val bookmarkRefresh = MutableLiveData<Boolean>()
 
+    //최초 빈화면 채우기용 플래그
     private val searchEmptyPlaceHolder = MutableLiveData<Boolean>()
     private val bookmarkEmptyPlaceHolder = MutableLiveData<Boolean>()
 
@@ -55,15 +59,16 @@ class SharedViewModel(application: Application) : BaseViewModel(application) {
         bookmarkEmptyPlaceHolder.value = false
     }
 
+    //프리퍼런스로부터 북마크 리스트를 가져온다.
     private fun makeBookmarkItems(bookmarkItems: HashSet<UserItem>): ArrayList<UserItem> {
         val returnList = ArrayList<UserItem>()
         for(item in bookmarkItems){
             returnList.add(item)
-            BlueUtil.d(item.toString())
         }
         return sortResultDataAlphabetical(returnList)
     }
 
+    //검색 API 요청
     fun requestSearchUsers(keyword: String){
         progress.value = true
         viewModelScope.launch {
@@ -83,6 +88,7 @@ class SharedViewModel(application: Application) : BaseViewModel(application) {
         }
     }
 
+    //isBookmarked 값으로 북마크를 할지 해제를 할지 판단
     fun bookmark(item: UserItem){
         if(item.isBookmarked){
             preferenceManager.setBookmarkData(item)

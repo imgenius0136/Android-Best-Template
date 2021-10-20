@@ -14,6 +14,7 @@ import com.luvia.to2youn.utils.BlueUtil
 import com.luvia.to2youn.utils.ViewUtil
 import java.text.FieldPosition
 
+//검색결과 관리 프래그먼트
 class SearchFragment : BaseMvvmFragment<FragmentSearchBinding>() {
 
     private val viewModel: SharedViewModel by activityViewModels()

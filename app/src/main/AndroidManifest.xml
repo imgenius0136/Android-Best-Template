@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!--  Minimum SDK 17 을 위한 멀티덱스 -->
+    <!--  센트리, TD, 등의 솔루션을 붙일때에는 어플리케이션을 상속한 클래스로 관리하는것이 좋다. 이 프로젝트에는 필요 없다고 판단하여 아래처럼 구성하였다. -->
     <application
         android:name="androidx.multidex.MultiDexApplication"
         android:allowBackup="true"
@@ -12,16 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BlueApplication">
-        <activity android:name="com.luvia.to2youn.ui.test.rx.RxTestActivity" />
-        <activity android:name=".ui.intro.IntroActivity" />
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:exported="true">
+        <activity android:name=".ui.intro.IntroActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.main.MainActivity">
         </activity>
     </application>
 

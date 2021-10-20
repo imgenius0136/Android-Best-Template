@@ -22,6 +22,7 @@ import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
 
+//Http 클라이언트이다.
 class HttpClient private constructor(){
     companion object {
 
@@ -110,6 +111,7 @@ class HttpClient private constructor(){
             })
         }
 
+        // 로컬 http 기반에서 테스트를 하기위해 만들어둔 클라이언트 구성체이다.
         private fun getUnsafeOkHttpClient(): OkHttpClient? {
             return try {
 

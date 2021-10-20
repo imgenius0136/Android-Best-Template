@@ -10,6 +10,8 @@ import com.luvia.to2youn.databinding.ItemSearchUserBinding
 import com.luvia.to2youn.network.model.search.UserItem
 import com.luvia.to2youn.utils.ImageUtil
 
+//북마크 리스트 어뎁터
+//검색결과 어뎁터와 큰 차이는 없지만 확장성 고려를 위해 따로 구성하였다.
 class BookmarkRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     interface BookmarkInterface{
@@ -20,6 +22,8 @@ class BookmarkRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() 
 
     private var data: ArrayList<UserItem>? = null
 
+    //처음엔 헤더를 구성하고자 타입을 정해서 생성하려고 했다.
+    //북마크 리스트를 관리할때 헤더타입 뷰 까지 관리하는것이 번거로워 하나로 통일
     private val USER_PROFILE_TYPE = 0
 
     fun setData(data: ArrayList<UserItem>){
