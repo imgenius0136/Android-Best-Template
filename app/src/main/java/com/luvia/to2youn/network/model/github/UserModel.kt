@@ -1,4 +1,4 @@
-package com.luvia.to2youn.network.model.search
+package com.luvia.to2youn.network.model.github
 
 import android.os.Parcelable
 import com.google.gson.annotations.Expose

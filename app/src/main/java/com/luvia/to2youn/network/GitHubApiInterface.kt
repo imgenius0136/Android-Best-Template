@@ -1,6 +1,6 @@
 package com.luvia.to2youn.network
 
-import com.luvia.to2youn.network.model.search.UserModel
+import com.luvia.to2youn.network.model.github.UserModel
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

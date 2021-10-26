@@ -5,13 +5,11 @@ import android.content.Intent
 import android.os.CountDownTimer
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.airbnb.lottie.LottieDrawable
 import com.luvia.to2youn.base.BaseMvvmActivity
 import com.luvia.to2youn.base.BaseViewModel
 import com.luvia.to2youn.databinding.ActivityIntroBinding
 import com.luvia.to2youn.ui.main.MainActivity
 
-//인트로 액티비티이다.
 class IntroActivity : BaseMvvmActivity<ActivityIntroBinding>() {
 
     private val viewModel: IntroViewModel by viewModels()

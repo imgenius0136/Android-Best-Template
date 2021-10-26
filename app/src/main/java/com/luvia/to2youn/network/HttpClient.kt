@@ -21,44 +21,11 @@ import javax.net.ssl.SSLSocketFactory
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
-
-//Http 클라이언트이다.
 class HttpClient private constructor(){
     companion object {
 
         private var host = ""
-        private val apiInterface: ApiInterface? = null
         private val gitHubApiInterface: GitHubApiInterface? = null
-
-        fun getClient(context: Context): ApiInterface {
-
-            host = HostManager.getHost(PreferenceManager(context))
-
-            if(apiInterface == null){
-
-                val logging = HttpLoggingInterceptor {
-                    Log.d("OkHttp:::", it)
-                }
-
-                logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
-
-                val client: OkHttpClient = OkHttpClient.Builder()
-                    .addInterceptor(logging)
-                    .build()
-
-                val retrofit = Retrofit.Builder()
-                    .baseUrl(host)
-                    .client(getUnsafeOkHttpClient()!!)
-//                    .client(client)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                    .build()
-
-                return retrofit.create(ApiInterface::class.java)
-            }
-
-            return apiInterface
-        }
 
         fun getGitHupClient(context: Context) : GitHubApiInterface {
             host = HostManager.getGitHubHost(PreferenceManager(context))
@@ -111,7 +78,6 @@ class HttpClient private constructor(){
             })
         }
 
-        // 로컬 http 기반에서 테스트를 하기위해 만들어둔 클라이언트 구성체이다.
         private fun getUnsafeOkHttpClient(): OkHttpClient? {
             return try {
 
